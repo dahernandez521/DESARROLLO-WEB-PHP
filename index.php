@@ -19,43 +19,45 @@
 
 <body>
 
-    <section>
-        <!-- Material form subscription -->
-        <div class="card login">
+    <main id="body">
+        <section>
+            <!-- Material form subscription -->
+            <div class="card login">
 
-            <h5 class="card-header info-color white-text text-center py-4">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" style="border-radius: 50%;">
-            </h5>
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" style="border-radius: 50%;">
+                </h5>
 
-            <!--Card content-->
-            <div class="card-body px-lg-5">
+                <!--Card content-->
+                <div class="card-body px-lg-5">
 
-                <!-- Form -->
-                <form class="text-center"  id="miform" style="color: #757575;" action="#!">
+                    <!-- Form -->
+                    <form class="text-center" id="miform" style="color: #757575;" action="#!">
 
-                    <!-- Name -->
-                    <div class="md-form mt-3">
-                        <input type="email" id="materialSubscriptionFormEmail" name="email" class="form-control">
-                        <label for="materialSubscriptionFormPasswords">Email</label>
-                    </div>
+                        <!-- Name -->
+                        <div class="md-form mt-3">
+                            <input type="email" id="materialSubscriptionFormEmail" required name="email" class="form-control">
+                            <label for="materialSubscriptionFormPasswords"><i class="fas fa-user-alt"></i> Email</label>
+                        </div>
 
-                    <!-- E-mai -->
-                    <div class="md-form">
-                        <input type="password" id="materialSubscriptionFormPasswords" name="password" class="form-control">
-                        <label for="materialSubscriptionFormEmail">Password</label>
-                    </div>
+                        <!-- E-mai -->
+                        <div class="md-form">
+                            <input type="password" id="materialSubscriptionFormPasswords" required name="password" class="form-control">
+                            <label for="materialSubscriptionFormEmail"><i class="fas fa-lock"></i> Password</label>
+                        </div>
 
-                    <!-- Sign in button -->
-                    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Ingresar</button>
+                        <!-- Sign in button -->
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Ingresar</button>
 
-                </form>
-                <!-- Form -->
+                    </form>
+                    <!-- Form -->
+
+                </div>
 
             </div>
-
-        </div>
-        <!-- Material form subscription -->
-    </section>
+            <!-- Material form subscription -->
+        </section>
+    </main>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
