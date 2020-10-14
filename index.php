@@ -24,35 +24,29 @@
         <div class="card login">
 
             <h5 class="card-header info-color white-text text-center py-4">
-                <strong>Subscribe</strong>
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" style="border-radius: 50%;">
             </h5>
 
             <!--Card content-->
             <div class="card-body px-lg-5">
 
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="#!">
-
-                    <p>Join our mailing list. We write rarely, but only the best content.</p>
-
-                    <p>
-                        <a href="" target="_blank">See the last newsletter</a>
-                    </p>
+                <form class="text-center"  id="miform" style="color: #757575;" action="#!">
 
                     <!-- Name -->
                     <div class="md-form mt-3">
-                        <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
-                        <label for="materialSubscriptionFormPasswords">Name</label>
+                        <input type="email" id="materialSubscriptionFormEmail" name="email" class="form-control">
+                        <label for="materialSubscriptionFormPasswords">Email</label>
                     </div>
 
                     <!-- E-mai -->
                     <div class="md-form">
-                        <input type="email" id="materialSubscriptionFormEmail" class="form-control">
-                        <label for="materialSubscriptionFormEmail">E-mail</label>
+                        <input type="password" id="materialSubscriptionFormPasswords" name="password" class="form-control">
+                        <label for="materialSubscriptionFormEmail">Password</label>
                     </div>
 
                     <!-- Sign in button -->
-                    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Sign in</button>
+                    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Ingresar</button>
 
                 </form>
                 <!-- Form -->
@@ -70,6 +64,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script src="js/ajaxForm.js"></script>
 
 </body>
 
