@@ -4,7 +4,7 @@ function cargarTiendas()
 {
 
 
-	$queries = new queriesMisas();
+	$queries = new queriesTiendas();
 	//Genera consulta en la tabla user para obtener las tiendas
 	$result = $queries->showTiendas();
 
@@ -23,8 +23,9 @@ function cargarTiendas()
                         <td>' . $f["address"] . '</td>
 						<td>' . $f["email"] . '</td>
 						<td>' . $f["cellphone"] . '</td>
+						
 					';
-			if ($f["activo"] == false) {
+			if ($f["email"] == false) {
 				echo '
 							<td>No</td>
 							';
@@ -36,12 +37,7 @@ function cargarTiendas()
             
             echo '<td>' . $f["cellphone"] . '</td>';
 
-			if ($f['disponibles'] < $f['total']) {
-				echo '
-							<td> <a href="reporte.php?id=' . $f["id"] . '">Ver</a> </td>';
-			} else {
-				echo '<td></td>';
-			}
+			
 			echo '</tr>';
 		} //end foreach
 	} else {

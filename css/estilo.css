@@ -1,8 +1,8 @@
-body{
-    background-image: url('../img/siigo.png') ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+body {
+  background-image: url("../img/siigo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 table.dataTable thead .sorting:after,
@@ -15,5 +15,13 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
-  bottom: .5em;
+  bottom: 0.5em;
+}
+.login {
+  width: 40% !important;
+}
+@media screen and(max-width:650px) {
+  .login {
+    width: 40% !important;
+  }
 }
