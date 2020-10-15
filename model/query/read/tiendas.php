@@ -22,6 +22,26 @@ class queriesTiendas{
 
 	}
 
+	public function showUser(){
+		$resultado=null;
+		$modelo= new conexion();
+		$conexion=$modelo->get_conexion();
+
+		$sql="SELECT * FROM user";
+				
+		$result=$conexion->prepare($sql);
+
+		$result->execute();
+
+		while ($f=$result->fetch()){
+            $resultado[]=$f;
+        }
+
+        return $resultado;
+
+
+	}
+
 
 	public function showMiTienda($id){
 		$resultado=null;

@@ -31,4 +31,7 @@ var form = $('#miform');
 
 		});
 	});
+//resgitro de tiendas 
+
+	
 

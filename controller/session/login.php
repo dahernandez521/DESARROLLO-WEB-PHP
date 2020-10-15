@@ -20,6 +20,7 @@ if (strlen($user) > 0 && strlen($pass) > 0) {
             $name = $f['name'] . ' ' . $f['lastname'];
             $tienda = $f['nitTienda'];
             $rol = $f['rol'];
+            $password = $f['password'];
         }
 
         if ($pass == $password) {
@@ -30,13 +31,14 @@ if (strlen($user) > 0 && strlen($pass) > 0) {
             $_SESSION['tienda'] = $tienda;
             $_SESSION['rol'] = $rol;
             $_SESSION['verification'] = "si";
+            $_SESSION['login'] = "si";
 
             //echo "<script>location.href='../../view/consultarUsuarios.php'</script>";
             if ($rol == 1) {
-                $vista = "Bienvenido_view/supervisorGeneral.php";
+                $vista = "Bienvenido_view/supervisorGeneral/supervisorGeneral.php";
             }
             if ($rol == 2) {
-                $vista = "Bienvenido_view/supervisorTienda.php";
+                $vista = "Bienvenido_view/supervisorTienda/supervisorTienda.php";
             }
             if ($rol == 3) {
                 $vista = "Bienvenido_view/supervisorSucursal.php";
