@@ -70,7 +70,7 @@ var registroUser =$('#formUser');
 
             var res = response.split('_')[0];
             var resp = response.split('_')[1];
-			alert('hello');
+
             alert(res);
             if(resp.length>0){
                 location.href=resp;

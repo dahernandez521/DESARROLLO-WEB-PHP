@@ -59,7 +59,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
           </a>
 
           <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-            <a class="dropdown-item" href="supervisorGeneral/registrarTiendas.php">Registrar Tiendas</a>
+            <a class="dropdown-item" href="supervisorGeneral/registrarTiendas.php">Registrar Tienda</a>
 
 
           </div>
@@ -81,54 +81,55 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
   </nav>
   <!--/.Navbar -->
 
-  <div class="containerPersona" class="form-group" >
+  <div class="containerPersona" class="form-group">
 
-    <h1>REGISTRAR PERSONA</h1> <br>
+    <h1><strong>REGISTRAR PERSONA</strong></h1> <br>
 
     <form action="" method="post" id="formUser" class="form-row">
 
       <div class="form-group col-md-4" class="form-row">
-        <label>Documento</label>
-        <input type="number" required name="document" class="form-control" class="form-row" placeholder="######">
+        <label><strong>Documento</strong></label>
+        <input type="number" required name="document" class="form-control" class="form-row" placeholder="1002549863">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Nombres</label>
-        <input type="text" class="form-control" required name="name" placeholder="Nombres">
+        <label><strong>Nombres</strong></label>
+        <input type="text" class="form-control" required name="name" placeholder="Pepito">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Apellidos</label>
-        <input type="text" name="lastname" required class="form-control" placeholder="Apellidos">
+        <label><strong>Apellidos</strong></label>
+        <input type="text" name="lastname" required class="form-control" placeholder="Perez">
       </div>
 
       <div class="form-group col-md-4">
-        <label>tipo</label>
-        <select name="type" id="" required>
+        <label><strong>Tipo</strong></label>
+        <select name="type" class="form-control type" required>
           <option value="">SELECCIONE</option>
-          <option value="CC">CC</option>
-          <option value="CE">CE</option>
+          <option value="CC">Cédula de Ciudadanía</option>
+          <option value="CE">Cédula de Extranjería</option>
         </select>
       </div>
 
 
       <div class="form-group col-md-4">
-        <label>Correo</label>
+        <label><strong>Correo</strong></label>
         <input type="email" class="form-control" required name="email" placeholder="Hernandez@correo.com">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Contraseña</label>
+        <label><strong>Contraseña</strong></label>
         <input type="password" class="form-control" required name="password" placeholder="**********">
-      </div>
-      <div class="form-group col-md-4">
-        <label>Telefono</label>
-        <input type="number" class="form-control" required name="cellphone" placeholder="#######">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Rol</label>
-        <select name="rol" required>
+        <label><strong>Telefono</strong></label>
+        <input type="number" class="form-control" required name="cellphone" placeholder="3125608954">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label><strong>Rol</strong></label>
+        <select name="rol" class="form-control rol" required>
 
           <option value="">Seleccione</option>
           <option value="1">Supervisor General</option>
@@ -140,37 +141,39 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
         </select>
       </div>
-      <div class="form-group col-md-4">
-        <label for="materialRegisterFormPassword">Departamento</label>
-        <select name="departaments" required class="departaments" id="materialRegisterFormEmail" class="form-control">
-
-
-        </select>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="materialRegisterFormPassword">Municipio</label>
-        <select name="municipality" required class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
-      </div>
 
       <div class="form-group col-md-4">
-        <label>Dirección</label>
-        <input type="text" class="form-control" required name="address" placeholder="Crr Cll">
-      </div>
-
-
-      <div class="form-group col-md-4">
-
-        <label>Tienda</label>
-        <select name="nitTienda" id="nitTienda" required>
-
+        <label><strong>Departamento</strong></label>
+        <select name="departaments" class="form-control departaments" required>
         </select>
       </div>
 
+      <div class="form-group col-md-4">
+        <label><strong>Municipio</strong></label>
+        <select name="municipality" class="form-control municipality" required></select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label><strong>Dirección</strong></label>
+        <input type="text" class="form-control" required name="address" placeholder="Carrera 5 #45">
+      </div>
+
+
+      <div class="form-group col-md-4">
+
+        <label><strong>Tienda</strong></label>
+        <select name="nitTienda" id="nitTienda" class="form-control nitTienda" required>
+        </select>
+      </div>
+
       <br>
       <br>
       <br>
-      <button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:20px">Registrar
+      <button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:20px; ">Registrar
       </button>
+      <br>
+      <a href="supervisorGeneral/usuarios.php" role="button" class="btn btn-danger btn-lg btn-block" style="border-radius:20px; margin-top:30px;">Volver</a>
+      <br>
       <br>
 
 

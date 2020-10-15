@@ -55,4 +55,31 @@ $(document).ready(function(){
 
     alert('Hubo un errror al cargar las bodegas')
   })
+
+  var bodega =$('#rbodega');
+	$(bodega).submit(function(e){
+		e.preventDefault();
+		var fromData=$(bodega).serialize();
+		$.ajax({
+			type: 'POST',
+      url:"../../controller/create/registroBodega.php",
+      data: fromData
+    })
+          .done(function(response) {
+
+        var res = response.split('_')[0];
+        var resp = response.split('_')[1];
+  
+        alert(res);
+        if(resp.length>0){
+            location.href=resp;
+        }
+      })
+
+      .fail(function(data) {
+
+        alert('error al realizar el registro');
+
+      })
+  });//cierra funcion e 
 });

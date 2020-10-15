@@ -31,15 +31,17 @@ function cargarTiendas()
 					';
 			if (isset($sucur)) {
 				echo '
-							<td><a href="">VER</a></td>
-							';
+				<td><a href="verSucursales.php?nitEmpresa=' . $f["nit"] . '">VER / <a href="registrarSucursal.php?nitEmpresa=' . $f["nit"] . '">REGISTRAR</a></td>
+				';
 			} else {
 				echo '
-							<td><a href="registrarSucursal.php?nitEmpresa=' . $f["nit"] . '">REGISTRAR</a></td>
+				<td><a href="registrarSucursal.php?nitEmpresa=' . $f["nit"] . '">REGISTRAR</a></td>
 							';
 			}
+			$nit = $f["nit"];
+			
 
-			echo '<td><a href="">ELIMINAR</a></td>';
+			echo '<td><a href="#" onclick="tienda(this)" id="'.$nit.'">ELIMINAR</a></td>';
 
 
 			echo '</tr>';
@@ -130,7 +132,6 @@ function cargarProductos()
 			echo '
 						<tr>
 						<td>' . $f["id"] . '</td>
-						<td>' . $f["idProveedor"] . '</td>
                         <td>' . $f["idBodega"] . '</td>
                         <td>' . $f["name"] . '</td>
 						
@@ -138,8 +139,174 @@ function cargarProductos()
 						<td>' . $f["precioCompra"] . '</td>
 						<td>' . $f["precioVenta"] . '</td>
 						<td>' . $f["stock"] . '</td>
-						<td>VER</td>
+						
 	
+						
+					';
+
+
+			echo '</tr>';
+		} //end foreach
+	} else {
+
+		echo '
+<tr>
+				<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+				<td></td>
+				<td></td>
+            	<td></td>
+            	
+
+            	</tr>';
+	}; //end if
+
+} //cierre de funcion cargarProductos
+
+function cargarProductos2()
+{
+
+	$queries = new queriesProductos();
+	//Genera consulta en la tabla user para obtener las tiendas
+	$result = $queries->showMiProducto($_SESSION['tienda']);
+
+
+
+	if (isset($result)) { //En caso de haya un error en la variable resultado
+
+		foreach ($result as $f) {
+
+
+			echo '
+						<tr>
+						<td>' . $f["id"] . '</td>
+                       
+                        <td>' . $f["name"] . '</td>
+						
+						<td>' . $f["description"] . '</td>
+						<td>' . $f["precioCompra"] . '</td>
+						<td>' . $f["precioVenta"] . '</td>
+						<td>' . $f["stock"] . '</td>
+						
+	
+						
+					';
+
+
+			echo '</tr>';
+		} //end foreach
+	} else {
+
+		echo '
+<tr>
+				<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+				<td></td>
+				<td></td>
+            	<td></td>
+            	
+
+            	</tr>';
+	}; //end if
+
+} //cierre de funcion cargarTiendas 
+
+
+
+function cargarProductosVendedor()
+{
+
+	$queries = new queriesProductos();
+	//Genera consulta en la tabla user para obtener las tiendas
+	$result = $queries->showMiProducto($_SESSION['tienda']);
+
+
+
+	if (isset($result)) { //En caso de haya un error en la variable resultado
+
+		foreach ($result as $f) {
+
+
+			echo '
+						<tr>
+						<td>' . $f["id"] . '</td>
+                       
+                        <td>' . $f["name"] . '</td>
+						
+						<td>' . $f["description"] . '</td>
+						
+						<td>' . $f["precioVenta"] . '</td>
+						<td>' . $f["stock"] . '</td>
+						<td><input type="number" value="1" id="producto'.$f["id"].'"></td>
+						<td><a href="#" onclick="insertar(this)" id="'.$f["id"].'">REGISTRAR</a></td>
+						
+	
+						
+					';
+
+
+			echo '</tr>';
+		} //end foreach
+	} else {
+
+		echo '
+<tr>
+				<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+				<td></td>
+				<td></td>
+            	<td></td>
+            	
+
+            	</tr>';
+	}; //end if
+
+} //cierre de funcion cargarTiendas 
+
+
+function cargarSucursales()
+{
+
+	$queries = new queriesTiendas();
+	//Genera consulta en la tabla user para obtener las tiendas
+	$result = $queries->showMiSucursal($_GET['nitEmpresa']);
+
+
+
+	if (isset($result)) { //En caso de haya un error en la variable resultado
+
+		foreach ($result as $f) {
+			$resultTwo = $queries->showMiBodega($f["idBodega"]);
+			foreach ($resultTwo as $y) {
+				$name = $y['name'];
+			}
+
+
+			echo '
+						<tr>
+						<td>' . $f["nitTienda"] . '</td>
+						<td>' . $f["name"] . '</td>
+                        <td>' . $f["address"] . '</td>
+                        <td>' . $f["email"] . '</td>
+						
+						<td>' . $f["cellphone"] . '</td>
+						<td>' . $y["name"] . '</td>
+						
+						<td><a href="#" onclick="sucursal(this)" id="'.$f["id"].'">ELIMINAR</a></td>
+
+					
 						
 					';
 
@@ -190,3 +357,54 @@ function rol($rol)
 
 	return $rol;
 }
+
+function cargarBodega()
+{
+
+	$queries = new queriesBodega();
+	//Genera consulta en la tabla user para obtener las tiendas
+	$result = $queries->showBodega();
+
+
+
+	if (isset($result)) { //En caso de haya un error en la variable resultado
+
+		foreach ($result as $f) {
+
+
+			echo '
+						<tr>
+                        <td>' . $f["idBodega"] . '</td>
+                        <td>' . $f["name"] . '</td>
+						
+						<td>' . $f["address"] . '</td>
+						<td>' . $f["email"] . '</td>
+						<td>' . $f["cellphone"] . '</td>
+						
+	
+						
+					';
+
+
+			echo '</tr>';
+		} //end foreach
+	} else {
+
+		echo '
+<tr>
+				<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+            	<td></td>
+				<td></td>
+				<td></td>
+            	<td></td>
+            	
+
+            	</tr>';
+	}; //end if
+
+} //cierre de funcion cargarTiendas 
+

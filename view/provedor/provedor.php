@@ -2,19 +2,20 @@
 session_start();
 require_once '../../model/conexion/conexion.php';
 require_once '../../controller/read/load.php';
-require_once '../../model/query/read/productos.php';
+require_once '../../model/query/read/bodega.php';
 
 if (!isset($_SESSION['login'])) { // verifica que existe la session activa
-
-    echo "<script>
+	
+		echo "<script>
 	            location.href='../../index.php';
 			</script>";
-} else {
-    if ($_SESSION['rol'] != 2) {
-        echo "<script>
+	
+}else{
+    if ($_SESSION['rol'] != 5) {
+		echo "<script>
 	            location.href='../../index.php';
 			</script>";
-    }
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -48,13 +49,26 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Productos</a>
+                    <a class="nav-link" href="">Provedores</a>
                 </li>
+                <li class="nav-item">
+          
+        </li>
 
-               
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">alertas
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="">ver alertas</a>
+                        
+                        
+
+                    </div>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-
+                
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
@@ -69,25 +83,23 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     </nav>
     <!--/.Navbar -->
 
-    <section id="tableProductos">
-        <table id="myTable2" class="display" style="width:90%; text-align: center;">
+    <section id="tableMisa">
+        <table id="myTable" class="display" style="width:90%; text-align: center;">
             <thead>
                 <tr>
 
-                    <th>id</th>
+                    <td>idBodega</td>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Email</th>
+                    <th>telefono</th>
                     
-                    
-                    <th>nombre</th>
-                    <th>descripción</th>
-                    <th>precio_compra</th>
-                    <th>precio_venta</th>
-                    <th>stock</th>
-                   
+                    <th></th>
                 </tr>
             </thead>
-            <tbody id="Productos">
+            <tbody id="misas">
                 <?php
-                echo cargarProductos2();
+                echo cargarBodega();
                 ?>
 
             </tbody>
@@ -105,7 +117,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
     <script>
         $(document).ready(function() {
-            $('#myTable2').DataTable({
+            $('#myTable').DataTable({
                 language: {
                     "sProcessing": "Procesando...",
                     "sLengthMenu": "Mostrar _MENU_ Registros",

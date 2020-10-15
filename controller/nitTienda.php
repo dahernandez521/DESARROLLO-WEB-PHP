@@ -9,7 +9,7 @@ function getTienda()
     //Genera consulta en la tabla user para obtener los usuarios
     $result = $queries->getTiendaAjax();
 
-    $Depertment = '<option class="form-control" value="0">Seleccione</option>';
+    $Depertment = '<option class="form-control" value="">Seleccione</option>';
 
     foreach ($result as $row) {
         $Depertment .= "<option  value='$row[nit]'>$row[name] Nit: $row[nit]</option>";

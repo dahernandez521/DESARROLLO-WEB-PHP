@@ -87,3 +87,17 @@ $(document).ready(function(){
             alert('Hubo un errror al cargar las bodegas')
           })
 });
+$.ajax({
+  type: 'POST',
+  url: '../../controller/supervisor.php' //me toco especificar la ruta a als malas
+})
+.done(function(listas_rep){
+  $('.supervisor').html(listas_rep)
+ 
+})
+.fail(function(){
+
+  alert('Hubo un errror al cargar los supervisor')
+});
+
+

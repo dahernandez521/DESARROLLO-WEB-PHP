@@ -10,6 +10,7 @@ $address = trim($_POST['address']);
 $email = trim($_POST['email']);
 $cellphone = trim($_POST['cellphone']);
 $idBodega= trim($_POST['idBodega']);
+$supervisor= trim($_POST['supervisor']);
 
 
 
@@ -28,7 +29,7 @@ $result3 = $model->getCellphone($cellphone);
 
     $vista = "El numero de TELEFONO ya se encuentra registrado_../view/supervisorGeneral.php";
 } else {
-    $consulta = $model->inserSucursal($nitTienda, $name, $municipality, $address, $email, $cellphone,$idBodega);
+    $consulta = $model->inserSucursal($nitTienda, $name, $municipality, $address, $email, $cellphone,$idBodega,$supervisor);
 
     $vista = $consulta;
 }

@@ -10,7 +10,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 	            location.href='../../index.php';
 			</script>";
 } else {
-    if ($_SESSION['rol'] != 2) {
+    if ($_SESSION['rol'] != 3) {
         echo "<script>
 	            location.href='../../index.php';
 			</script>";
@@ -51,7 +51,14 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link" href="">Productos</a>
                 </li>
 
-               
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="registrarProductos.php">Registrar Productos</a>
+
+                    </div>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
 
@@ -74,20 +81,20 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <thead>
                 <tr>
 
-                    <th>id</th>
-                    
-                    
+                    <td>id</td>
+
+                    <th>idBodega</th>
                     <th>nombre</th>
                     <th>descripción</th>
                     <th>precio_compra</th>
                     <th>precio_venta</th>
                     <th>stock</th>
-                   
+
                 </tr>
             </thead>
             <tbody id="Productos">
                 <?php
-                echo cargarProductos2();
+                echo cargarProductos();
                 ?>
 
             </tbody>

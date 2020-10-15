@@ -85,6 +85,27 @@ class queriesTiendas{
 
 	}
 
+	public function showMiBodega($id){
+		$resultado=null;
+		$modelo= new conexion();
+		$conexion=$modelo->get_conexion();
+
+		$sql="SELECT * FROM bodega WHERE idBodega=:id";
+				
+		$result=$conexion->prepare($sql);
+		$result->bindparam(":id",$id);
+
+		$result->execute();
+
+		while ($f=$result->fetch()){
+            $resultado[]=$f;
+        }
+
+        return $resultado;
+
+
+	}
+
 
 
 }

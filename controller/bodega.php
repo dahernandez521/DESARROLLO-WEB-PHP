@@ -8,7 +8,7 @@ function getBodega(){
     //Genera consulta en la tabla user para obtener los usuarios
   $result=$queries->getBodegaAjax();
 
-  $Depertment = '<option value="0">Seleccione</option>';
+  $Depertment = '<option value="">Seleccione</option>';
   
   foreach ($result as $row ) {
   	$Depertment .= "<option value='$row[idBodega]'>$row[name]_$row[idBodega]</option>";

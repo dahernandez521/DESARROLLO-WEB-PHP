@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2020 a las 15:12:43
+-- Tiempo de generación: 15-10-2020 a las 20:45:39
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.33
 
@@ -33,9 +33,17 @@ CREATE TABLE `bodega` (
   `municipality` int(5) NOT NULL,
   `address` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cellphone` bigint(20) NOT NULL,
-  `nitProveedor` varchar(25) COLLATE utf8_spanish_ci NOT NULL
+  `cellphone` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `bodega`
+--
+
+INSERT INTO `bodega` (`idBodega`, `name`, `municipality`, `address`, `email`, `cellphone`) VALUES
+(1, 'Resurrecion4', 534, '3 13056', 'padre2@gmail.com', 3105772994),
+(2, 'Resurrecion4', 1, '3 130', 'padre@gmail.com', 3203446985),
+(3, 'Juguito Hit', 147, 'Carrera 8 # 3-23', 'juguitohit@misena.edu.co', 55555552);
 
 -- --------------------------------------------------------
 
@@ -123,9 +131,8 @@ CREATE TABLE `detalle` (
 CREATE TABLE `factura` (
   `id` int(11) NOT NULL,
   `nitTienda` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `cellphoneTienda` bigint(20) NOT NULL,
   `idVendedor` bigint(12) DEFAULT NULL,
-  `documentCliente` bigint(12) NOT NULL,
+  `documentCliente` bigint(12) DEFAULT NULL,
   `valorNeto` bigint(20) NOT NULL,
   `valorTotal` bigint(20) NOT NULL,
   `descuento` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL
@@ -1278,8 +1285,8 @@ INSERT INTO `municipality` (`id_municipality`, `name_municipality`, `id_departam
 
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
-  `idProveedor` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `idBodega` int(11) NOT NULL,
+  `nitEmpresa` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `description` text COLLATE utf8_spanish_ci NOT NULL,
   `precioCompra` bigint(20) NOT NULL,
@@ -1287,21 +1294,14 @@ CREATE TABLE `producto` (
   `stock` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `proveedor`
+-- Volcado de datos para la tabla `producto`
 --
 
-CREATE TABLE `proveedor` (
-  `nit` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `municipality` int(5) NOT NULL,
-  `address` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cellphone` bigint(20) NOT NULL,
-  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` text COLLATE utf8_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+INSERT INTO `producto` (`id`, `idBodega`, `nitEmpresa`, `name`, `description`, `precioCompra`, `precioVenta`, `stock`) VALUES
+(1, 1, '12345', 'martillos', 'martillos buena calidad ', 2000, 2100, 10),
+(2, 1, '123', 'resurrecion4', 'asdfhjklñ{}', 20000, 21000, 15),
+(3, 3, '123', 'hit de mango', 'hit con sabor a mango', 1700, 2500, 50);
 
 -- --------------------------------------------------------
 
@@ -1311,14 +1311,22 @@ CREATE TABLE `proveedor` (
 
 CREATE TABLE `sucursal` (
   `id` int(11) NOT NULL,
-  `nitTienda` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `nitTienda` varchar(25) COLLATE utf8_spanish_ci DEFAULT NULL,
   `name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `municipality` int(5) NOT NULL,
   `address` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `cellphone` bigint(20) NOT NULL,
-  `idBodega` int(11) NOT NULL
+  `idBodega` int(11) NOT NULL,
+  `supervisor` bigint(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `sucursal`
+--
+
+INSERT INTO `sucursal` (`id`, `nitTienda`, `name`, `municipality`, `address`, `email`, `cellphone`, `idBodega`, `supervisor`) VALUES
+(2, '12345', 'Santiago Gutierrez', 14, '3 1301', 'padre26@gmail.com', 123456987, 1, 1010124125);
 
 -- --------------------------------------------------------
 
@@ -1332,8 +1340,18 @@ CREATE TABLE `tienda` (
   `municipality` int(5) NOT NULL,
   `address` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `cellphone` bigint(20) NOT NULL
+  `cellphone` bigint(20) NOT NULL,
+  `supervisor` bigint(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tienda`
+--
+
+INSERT INTO `tienda` (`nit`, `name`, `municipality`, `address`, `email`, `cellphone`, `supervisor`) VALUES
+('123', 'tiendajavi', 638, 'calle 13 ', 'tiendajavi@gmail.com', 3203446823, 1000519268),
+('12345', 'Resurrecion4', 12, '3 130', 'padre@gmail.com', 3105998623, 1010124125),
+('20916022', 'Saulher', 26, 'Carrera 8 # 3-23', 'saulito@misena.edu.co', 313586924, 1000519268);
 
 -- --------------------------------------------------------
 
@@ -1348,12 +1366,24 @@ CREATE TABLE `user` (
   `type` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(33) COLLATE utf8_spanish_ci NOT NULL,
-  `nitTienda` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `nitTienda` varchar(25) COLLATE utf8_spanish_ci DEFAULT NULL,
   `rol` int(10) NOT NULL,
   `municipality` int(5) NOT NULL,
   `address` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `cellphone` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`document`, `name`, `lastname`, `type`, `email`, `password`, `nitTienda`, `rol`, `municipality`, `address`, `cellphone`) VALUES
+(209165322, 'Marticc', 'Ni??ooooo', 'CE', 'dahessss@misena.edu.co', '6142a88d730b9aa48eed872142467129', '123', 4, 539, 'Carrera 8 # 3-23', 301777752),
+(1000519268, 'javier ', 'guzman ', 'CC', 'jhguzman86@misena.edu.co', '6142a88d730b9aa48eed872142467129', NULL, 2, 638, 'calle 13 #130', 3203446823),
+(1000568266, 'Resurrecion', 'Barreto', 'CC', 'padre5@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123', 5, 638, '3 13056', 3105665982),
+(1010124125, 'duvan', 'hernandez', 'CC', 'dahernandez521@misena.edu.co', '6142a88d730b9aa48eed872142467129', '12345', 6, 14, 'calle3 ', 3203446826),
+(3423424243, 'Pepita', 'Peraz', 'CE', 'dahersssssssss@misena.edu.co', '6142a88d730b9aa48eed872142467129', '123', 1, 542, 'Carrera 8 # 3-23', 11122211122),
+(10003560872, 'fernando ', 'benavides ', 'CC', 'fernando@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 4, 607, 'calle 24 ', 3203446567);
 
 --
 -- Índices para tablas volcadas
@@ -1366,7 +1396,6 @@ ALTER TABLE `bodega`
   ADD PRIMARY KEY (`idBodega`),
   ADD UNIQUE KEY `cellphone` (`cellphone`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `nitProveedor` (`nitProveedor`),
   ADD KEY `municipality` (`municipality`);
 
 --
@@ -1411,18 +1440,8 @@ ALTER TABLE `municipality`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idProveedor` (`idProveedor`),
-  ADD KEY `idBodega` (`idBodega`);
-
---
--- Indices de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  ADD PRIMARY KEY (`nit`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `cellphone` (`cellphone`),
-  ADD KEY `municipality` (`municipality`),
-  ADD KEY `municipality_2` (`municipality`);
+  ADD KEY `idBodega` (`idBodega`),
+  ADD KEY `nitEmpresa` (`nitEmpresa`);
 
 --
 -- Indices de la tabla `sucursal`
@@ -1442,7 +1461,8 @@ ALTER TABLE `tienda`
   ADD PRIMARY KEY (`nit`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `cellphone` (`cellphone`),
-  ADD KEY `municipality` (`municipality`);
+  ADD KEY `municipality` (`municipality`),
+  ADD KEY `supervisor` (`supervisor`);
 
 --
 -- Indices de la tabla `user`
@@ -1456,6 +1476,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `bodega`
+--
+ALTER TABLE `bodega`
+  MODIFY `idBodega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `departaments`
@@ -1485,13 +1511,13 @@ ALTER TABLE `municipality`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -1501,7 +1527,6 @@ ALTER TABLE `sucursal`
 -- Filtros para la tabla `bodega`
 --
 ALTER TABLE `bodega`
-  ADD CONSTRAINT `bodega_ibfk_1` FOREIGN KEY (`nitProveedor`) REFERENCES `proveedor` (`nit`),
   ADD CONSTRAINT `bodega_ibfk_2` FOREIGN KEY (`municipality`) REFERENCES `municipality` (`id_municipality`);
 
 --
@@ -1529,28 +1554,23 @@ ALTER TABLE `municipality`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idProveedor`) REFERENCES `proveedor` (`nit`),
-  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`);
-
---
--- Filtros para la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`municipality`) REFERENCES `municipality` (`id_municipality`);
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`),
+  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`nitEmpresa`) REFERENCES `tienda` (`nit`);
 
 --
 -- Filtros para la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
-  ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`),
   ADD CONSTRAINT `sucursal_ibfk_2` FOREIGN KEY (`municipality`) REFERENCES `municipality` (`id_municipality`),
-  ADD CONSTRAINT `sucursal_ibfk_3` FOREIGN KEY (`nitTienda`) REFERENCES `tienda` (`nit`);
+  ADD CONSTRAINT `sucursal_ibfk_3` FOREIGN KEY (`nitTienda`) REFERENCES `tienda` (`nit`),
+  ADD CONSTRAINT `sucursal_ibfk_4` FOREIGN KEY (`idBodega`) REFERENCES `bodega` (`idBodega`);
 
 --
 -- Filtros para la tabla `tienda`
 --
 ALTER TABLE `tienda`
-  ADD CONSTRAINT `tienda_ibfk_2` FOREIGN KEY (`municipality`) REFERENCES `municipality` (`id_municipality`);
+  ADD CONSTRAINT `tienda_ibfk_2` FOREIGN KEY (`municipality`) REFERENCES `municipality` (`id_municipality`),
+  ADD CONSTRAINT `tienda_ibfk_3` FOREIGN KEY (`supervisor`) REFERENCES `user` (`document`);
 
 --
 -- Filtros para la tabla `user`

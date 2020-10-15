@@ -40,27 +40,58 @@ table.dataTable thead .sorting_desc_disabled:before {
   border-radius: 12px;
   background-color: gainsboro;
   padding: 25px;
-  color:white;
+  color:black;
   margin-top: 30px;
   width: 70%;
   margin-left: 15%;
+  opacity: 0.9;
 }
 
 .containerTienda{
   border-radius: 12px;
   background-color: gainsboro;
   padding: 25px;
-  color:white;
+  color:black;
   margin-top: 30px;
+  margin-bottom: auto;
   width: 70%;
   margin-left: 15%;
+  opacity: 0.9;
+  
   
 }
+.containerBodega{
+  border-radius: 12px;
+  background-color: gainsboro;
+  padding: 25px;
+  color:black;
+  margin-top: 30px;
+  margin-bottom: auto;
+  width: 70%;
+  margin-left: 15%;
+  opacity: 0.9;
+}
+
+.containerProducto{
+  border-radius: 12px;
+  background-color: gainsboro;
+  padding: 25px;
+  color:black;
+  margin-top: 30px;
+  margin-bottom: auto;
+  width: 70%;
+  margin-left: 15%;
+  opacity: 0.9;
+}
+
 
 #form{
   margin: 0 auto;
-  color:white;
+
 }
+
+
+
 #rtienda{
   margin: center;
   color:white;

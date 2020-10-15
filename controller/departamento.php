@@ -8,7 +8,7 @@ function getDepartment(){
     //Genera consulta en la tabla user para obtener los usuarios
   $result=$queries->getDepartmentAjax();
 
-  $Depertment = '<option class="form-control" value="0">Seleccione</option>';
+  $Depertment = '<option class="form-control" value="">Seleccione</option>';
   
   foreach ($result as $row ) {
   	$Depertment .= "<option value='$row[id_departaments]'>$row[name_departament]</option>";

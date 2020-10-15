@@ -58,12 +58,8 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-                        <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Personas</a>
-                        <a class="dropdown-item" href="registrarTiendas.php">Registrar Tiendas</a>
-                        
-                        <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Personas </a>
-
-
+                        <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Persona</a>
+                    
                     </div>
                 </li>
             </ul>
@@ -85,7 +81,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
     <!-- Material form register -->
 
-    <div class="containerTienda" class="form-group" style= "opacity: 0.9;">
+    <div class="containerTienda" class="form-group" >
 
         <h1> <strong>REGISTRAR TIENDA</strong></h1> <br>
 
@@ -93,7 +89,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
             <div class="form-group col-md-4" class="form-row">
                 <label><strong>Nit</strong></label>
-                <input type="text" name="nit" class="form-control" class="form-row" placeholder="7895481" required>
+                <input type="text" name="nit" class="form-control form-row" placeholder="7895481" required>
             </div>
 
             <div class="form-group col-md-4">
@@ -128,7 +124,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
             <div class="form-group col-md-4">
                 <label><strong>Dirrección</strong></label>
-                <input type="text" name="address" class="form-control" placeholder="carrera 5 #4-98"  required>
+                <input type="text" name="address" class="form-control" placeholder="Carrera 5 #4-98"  required>
             </div>
 
             <div class="form-group col-md-4">
@@ -138,7 +134,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
             <div class="form-group col-md-4">
                 <label><strong>Telefono</strong></label>
-                <input type="number" class="form-control" name="cellphone" placeholder="#######">
+                <input type="number" class="form-control" name="cellphone" placeholder="3201548756">
             </div>
             <br>
             <br>

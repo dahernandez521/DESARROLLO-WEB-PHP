@@ -1,5 +1,5 @@
 <?php
-require_once '../../model/conexion/conexion.php';
+require_once ('../../model/conexion/conexion.php');
 session_start();
 
 if (!isset($_SESSION['login'])) { // verifica que existe la session activa
@@ -37,6 +37,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
 <body>
 
+
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color lighten-1">
         <h1><a class="navbar-brand" href="#">SIIGO</a></h1>
@@ -57,7 +58,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-                        <a class="dropdown-item" href="registrarProductos.php">Registrar Producto</a>
+                        <a class="dropdown-item" href="registrarBodega.php">Registrar Bodega</a>
                     
                     </div>
                 </li>
@@ -78,63 +79,70 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     </nav>
     <!--/.Navbar -->
 
+ <!-- Material form register -->
+ <div class="containerProducto" class="form-group" >
 
-    <!-- Material form register -->
-    <div class="containerBodega" class="form-group" >
+<h1> <strong>REGISTRAR PRODUCTO</strong></h1> <br>
 
-        <h1> <strong>REGISTRAR BODEGA</strong></h1> <br>
+<form action="" method="post" id="rproductos" class="rproductos form-row" >
 
-        <form action="" method="post" id="rbodega" class="rbodega form-row" >
-
-            <div class="form-group col-md-4" class="form-row">
-                <label><strong>Nombre</strong></label>
-                <input type="text" name="name" class="form-control form-row" placeholder="Bodega #1" required>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label><strong>Departamento</strong></label>
-                <br>
-                <select class="form-control departaments" name="departaments" required></select>
-            </div>
-
-            <br>
-
-            <div class="form-group col-md-4">
-                <label><strong>Municipio</strong></label>
-                <br>
-                <select name="municipality" class="form-control municipality"  required></select>
-            </div>
-
-            <br>
-
-            <div class="form-group col-md-4">
-                <label><strong>Dirrección</strong></label>
-                <input type="text" name="address" class="form-control" placeholder="Carrera 5 #4-98"  required>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label><strong>Correo electronico</strong></label>
-                <input type="email" class="form-control" name="email" placeholder="bodegavilleta@tucorreo.com"  required>
-            </div>
-
-            <div class="form-group col-md-4">
-                <label><strong>Telefono</strong></label>
-                <input type="number" class="form-control" name="cellphone" placeholder="3201548756">
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:20px">Registrar</button>
-            <br>
-            <br>
-            <a href="almacenista.php" role="button" class="btn btn-danger btn-lg btn-block" style="border-radius:20px; margin-top:30px;">Volver</a>
-            <br>
-            <br>
-
-        </form>
+<div class="form-group col-md-4">
+        <label><strong>ID Bodega</strong></label>
+        <br>
+        <select class="form-control idBodega" name="idBodega" required></select>
     </div>
-        <br>    
+
+    <div class="form-group col-md-4">
+        <label><strong>Tienda</strong></label>
+        <br>
+        <select class="form-control nitTienda" name="nitTienda" id="nitTienda" required></select>
+    </div>
+
+    <br>
+
+    <div class="form-group col-md-4" class="form-row">
+        <label><strong>Nombre</strong></label>
+        <input type="text" name="name" class="form-control form-row" placeholder="Martillo" required>
+    </div>
+
+    <br>
+
+    <div class="form-group col-md-4" class="form-row">
+        <label><strong>Precio de compra</strong></label>
+        <input type="number" name="precioCompra" class="form-control form-row" placeholder="4000" required>
+    </div>
+
+    
+    <div class="form-group col-md-4" class="form-row">
+        <label><strong>Precio de venta</strong></label>
+        <input type="number" name="precioVenta" class="form-control form-row" placeholder="2500" required>
+    </div>
+
+    <div class="form-group col-md-4" class="form-row">
+        <label><strong>Stock</strong></label>
+        <input type="number" class="form-control form-row" name="stock"> 
+    </div>
+
+    <div class="form-group col-md-4" class="form-row">
+        <label><strong>Descripción</strong></label>
+        <textarea cols="30" rows="10" type="text" name="description" class="form-control form-row" placeholder="..." required></textarea>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:20px">Registrar</button>
+    <br>
+    <br>
+    <a href="almacenista.php" role="button" class="btn btn-danger btn-lg btn-block" style="border-radius:20px; margin-top:30px;">Volver</a>
+    <br>
+    <br>
+
+</form>
+</div>
+    <br>
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
@@ -144,7 +152,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
         <!-- <script type="text/javascript" src="../../js/js.js"></script> -->
-        <script type="text/javascript" src="../../js/ajaxLugares.js"></script>
+        <script type="text/javascript" src="../../js/ajaxProducto.js"></script>
 </body>
 
 </html>

@@ -178,7 +178,7 @@ class getUser
         }
         return $vista;
     }
-    public function inserSucursal($nitTienda, $name, $municipality, $address, $email, $cellphone, $idBodega)
+    public function inserSucursal($nitTienda, $name, $municipality, $address, $email, $cellphone, $idBodega,$supervisor)
     {
 
         $resultado = null;
@@ -187,7 +187,7 @@ class getUser
 
 
 
-        $sql = "INSERT INTO sucursal (nitTienda,name,municipality,address,email,cellphone,idBodega) VALUES (:id,:name,:municipality,:address,:email,:cellphone,:idBodega )";
+        $sql = "INSERT INTO sucursal (nitTienda,name,municipality,address,email,cellphone,idBodega,supervisor) VALUES (:id,:name,:municipality,:address,:email,:cellphone,:idBodega,:supervisor )";
         $result = $consulta->prepare($sql);
         $result->bindParam(':id', $nitTienda);
         $result->bindParam(':name', $name);
@@ -196,6 +196,7 @@ class getUser
         $result->bindParam(':email', $email);
         $result->bindParam(':cellphone', $cellphone);
         $result->bindParam(':idBodega', $idBodega);
+        $result->bindParam(':supervisor', $supervisor);
         
 
         if (!$result) {
@@ -241,4 +242,60 @@ class getUser
 
     
     }
-}
+    public function inserProducto($idBodega, $nitTienda, $name, $description,$precioCompra,$precioVenta,$stock){
+        $resultado = null;
+        $model = new conexion();
+        $consulta = $model->get_conexion();
+        $sql="INSERT INTO producto(idBodega,nitEmpresa,name,description,precioCompra,precioVenta,stock) VALUES(:idBodega,:nitTienda,:name,:description,:precioCompra,:precioVenta,:stock)";
+        $result = $consulta->prepare($sql);
+        $result->bindParam(':idBodega', $idBodega);
+        $result->bindParam(':nitTienda', $nitTienda);
+        $result->bindParam(':name', $name);
+        $result->bindParam(':description', $description);
+        $result->bindParam(':precioCompra', $precioCompra);
+        $result->bindParam(':precioVenta', $precioVenta);
+        $result->bindParam(':stock', $stock);
+        if (!$result) {
+
+            $vista = "Fallo al registrar";
+        } else {
+
+            $result->execute();
+
+
+
+            $vista = "registro exitoso_../../view/almacenista/almacenista.php";
+        }
+        return $vista;
+
+    }//cierra funcion inserproducto 
+
+    public function registerFactura($nit,$document,$precioN,$precioT,$descuento){
+        $resultado = null;
+        $model = new conexion();
+        $consulta = $model->get_conexion();
+        $sql="INSERT INTO factura(nitTienda,idVendedor,valorNeto,valorTotal,descuento) VALUES(:nitTienda,:idVendedor,:valorNeto,:valorTotal,:descuento)";
+        $result = $consulta->prepare($sql);
+        
+       
+        $result->bindParam(':nitTienda', $nitTienda);
+        $result->bindParam(':idVendedor', $idVendedor);
+        $result->bindParam(':valorNeto', $valorNeto);
+        $result->bindParam(':valorTotal', $valorTotal);
+        $result->bindParam(':descuento', $descuento);
+        
+        if (!$result) {
+
+            $vista = "Fallo al registrar";
+        } else {
+
+            $result->execute();
+
+
+
+            $vista = "registro exitoso";
+        }
+        return $vista;
+
+    }//cierra funcion inserproducto 
+}//cierra funcion get user 

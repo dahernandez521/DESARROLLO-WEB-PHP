@@ -59,4 +59,25 @@ class consulta
 
         return $resultado;
     }
+
+    public function producto($id)
+    {
+        $resultado = null;
+
+        $model = new conexion();
+        $conexion = $model->get_conexion();
+
+        $sql = "SELECT * FROM producto WHERE id=:id";
+
+        $result = $conexion->prepare($sql);
+        $result->bindParam(":id", $id);
+
+        $result->execute();
+
+        while ($f = $result->fetch()) {
+            $resultado[] = $f;
+        }
+
+        return $resultado;
+    }
 }

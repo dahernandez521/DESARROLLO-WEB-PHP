@@ -10,7 +10,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 	            location.href='../../index.php';
 			</script>";
 } else {
-    if ($_SESSION['rol'] != 2) {
+    if ($_SESSION['rol'] != 6) {
         echo "<script>
 	            location.href='../../index.php';
 			</script>";
@@ -51,10 +51,14 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link" href="">Productos</a>
                 </li>
 
-               
+
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">1
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
@@ -70,24 +74,24 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     <!--/.Navbar -->
 
     <section id="tableProductos">
-        <table id="myTable2" class="display" style="width:90%; text-align: center;">
+        <table id="myTable" class="display" style="width:90%; text-align: center;">
             <thead>
                 <tr>
 
+
                     <th>id</th>
-                    
-                    
                     <th>nombre</th>
                     <th>descripción</th>
-                    <th>precio_compra</th>
+
                     <th>precio_venta</th>
                     <th>stock</th>
-                   
+                    <th>Cantidad</th>
+                    <th></th>
                 </tr>
             </thead>
-            <tbody id="Productos">
+            <tbody id="producto">
                 <?php
-                echo cargarProductos2();
+                echo cargarProductosVendedor();
                 ?>
 
             </tbody>
@@ -102,10 +106,10 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
-
+<script src="../../js/vendedor.js"></script>
     <script>
         $(document).ready(function() {
-            $('#myTable2').DataTable({
+            $('#myTable').DataTable({
                 language: {
                     "sProcessing": "Procesando...",
                     "sLengthMenu": "Mostrar _MENU_ Registros",

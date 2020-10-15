@@ -28,7 +28,7 @@ class queriesProductos{
 		$modelo= new conexion();
 		$conexion=$modelo->get_conexion();
 
-		$sql="SELECT * FROM producto WHERE id=:id";
+		$sql="SELECT * FROM producto WHERE nitEmpresa=:id";
 				
 		$result=$conexion->prepare($sql);
 		$result->bindparam(":id",$id);

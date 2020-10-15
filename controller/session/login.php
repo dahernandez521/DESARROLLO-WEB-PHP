@@ -41,16 +41,16 @@ if (strlen($user) > 0 && strlen($pass) > 0) {
                 $vista = "Bienvenido_view/supervisorTienda/supervisorTienda.php";
             }
             if ($rol == 3) {
-                $vista = "Bienvenido_view/supervisorSucursal.php";
+                $vista = "Bienvenido_view/supervisorSucursal/supervisorSucursal.php";
             }
             if ($rol == 4) {
                 $vista = "Bienvenido_view/almacenista/almacenista.php";
             }
             if ($rol == 5) {
-                $vista = "Bienvenido_view/vendedor.php";
+                $vista = "Bienvenido_view/provedor/provedor.php";
             }
             if ($rol == 6) {
-                $vista = "Bienvenido_view/proveedor.php";
+                $vista = "Bienvenido_view/vendedor/vendedor.php";
             }
         } else {
 

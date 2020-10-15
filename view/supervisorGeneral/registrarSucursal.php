@@ -85,13 +85,6 @@ if (isset($_GET["nitEmpresa"])) {
                     <label for="materialRegisterFormPassword">Municipio</label>
                     <select name="municipality" class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
-
-                <div class="md-form mt-0">
-                    <label for="materialRegisterFormPassword">Supervisor</label>
-                    <select name="supervisor" class="supervisor" id="materialRegisterFormEmail" class="form-control"></select>
-                </div>
-
-
                 <!-- Password -->
                 <div class="md-form">
                     <input type="text" id="materialRegisterFormPassword" name="address" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
@@ -110,10 +103,17 @@ if (isset($_GET["nitEmpresa"])) {
                     <label class="form-check-label" for="materialRegisterFormNewsletter">Numero de contacto</label>
                 </div>
                 <br>
+                <div>
                 <label for="materialRegisterFormPassword">ID bodega</label>
                     <select name="idBodega" class="idBodega" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
-¿
+                <div class="form-group col-md-4">
+                    <label><strong>Supervisor</strong></label>
+                    <br>
+                    <select name="supervisor" class= "form-control supervisor"  required></select>
+                 </div>
+
+
                 <!-- Sign up button -->
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Registrar</button>
                <a href="supervisorGeneral.php" role="button" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Salir</a>

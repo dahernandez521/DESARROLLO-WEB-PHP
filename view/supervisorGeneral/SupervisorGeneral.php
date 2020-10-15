@@ -5,17 +5,16 @@ require_once '../../controller/read/load.php';
 require_once '../../model/query/read/tiendas.php';
 
 if (!isset($_SESSION['login'])) { // verifica que existe la session activa
-	
-		echo "<script>
+
+    echo "<script>
 	            location.href='../../index.php';
 			</script>";
-	
-}else{
+} else {
     if ($_SESSION['rol'] != 1) {
-		echo "<script>
+        echo "<script>
 	            location.href='../../index.php';
 			</script>";
-	}
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -52,23 +51,23 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link" href="">Tiendas</a>
                 </li>
                 <li class="nav-item">
-          <a class="nav-link" href="usuarios.php">Usuario</a>
-        </li>
+                    <a class="nav-link" href="usuarios.php">Usuario</a>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro
                     </a>
-                    
+
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
                         <a class="dropdown-item" href="registrarTiendas.php">Registrar Tiendas</a>
-                        
+
                         <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Personas </a>
 
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                
+
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
@@ -88,7 +87,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <thead>
                 <tr>
 
-                    <td>nit</td>
+                    <th>nit</th>
                     <th>Nombre</th>
                     <th>Supervisor</th>
                     <th>Direccion</th>
@@ -115,7 +114,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
-
+    <script src="../../js/delete.js"></script>
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable({

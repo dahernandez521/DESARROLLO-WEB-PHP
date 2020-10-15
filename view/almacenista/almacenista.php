@@ -2,7 +2,7 @@
 session_start();
 require_once '../../model/conexion/conexion.php';
 require_once '../../controller/read/load.php';
-//require_once '../../model/query/read/almacenista.php';
+require_once '../../model/query/read/productos.php';
 
 if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 	
@@ -49,7 +49,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="">almacen</a>
+                    <a class="nav-link" href="">Almacen</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -57,6 +57,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
                         <a class="dropdown-item" href="registrarBodega.php">Registrar bodegas</a>
+                        <a class="dropdown-item" href="registrarProductos.php">Registrar Producto</a>
 
                     </div>
                 </li>
@@ -73,7 +74,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
 
-                        <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                        <a class="dropdown-item" href="../../controller/session/singOff.php">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
@@ -82,12 +83,11 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
     <!--/.Navbar -->
 
     <section id="tableProductos">
-        <table id="myTable2" class="display" style="width:90%; text-align: center;">
+        <table id="myTable" class="display" style="width:90%; text-align: center;">
             <thead>
                 <tr>
 
                     <td>id</td>
-                    <th>idProvedor</th>
                     <th>idBodega</th>
                     <th>nombre</th>
                     <th>descripción</th>

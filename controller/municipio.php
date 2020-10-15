@@ -11,7 +11,7 @@ function getMunicipality(){
     //Genera consulta en la tabla user para obtener los usuarios
   $result=$queries->getMunicipalityAjax($id);
   
-  $Municipality = '<option class="form-control" value="0">Seleccione</option>';
+  $Municipality = '<option class="form-control" value="">Seleccione</option>';
   
   foreach ($result as $row ) {
   	$Municipality .= "<option value='$row[id_municipality]'>$row[name_municipality]</option>";
