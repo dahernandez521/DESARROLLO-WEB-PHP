@@ -136,7 +136,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
           <option value="3">Administrador de Sucursal</option>
           <option value="4">Almacenista</option>
           <option value="5">Proveedor</option>
-          <option value="5">Vendedor</option>
+          <option value="6">Vendedor</option>
 
         </select>
       </div>

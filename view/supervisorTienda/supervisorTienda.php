@@ -5,17 +5,16 @@ require_once '../../controller/read/load.php';
 require_once '../../model/query/read/productos.php';
 
 if (!isset($_SESSION['login'])) { // verifica que existe la session activa
-	
-		echo "<script>
+
+    echo "<script>
 	            location.href='../../index.php';
 			</script>";
-	
-}else{
+} else {
     if ($_SESSION['rol'] != 2) {
-		echo "<script>
+        echo "<script>
 	            location.href='../../index.php';
 			</script>";
-	}
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -57,19 +56,19 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
                         <a class="dropdown-item" href="registrarProductos.php">Registrar Productos</a>
-                  
+
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                
+
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
 
-                        <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                        <a class="dropdown-item" href="../../controller/session/singOff.php">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>

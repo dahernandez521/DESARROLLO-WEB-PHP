@@ -178,7 +178,7 @@ class getUser
         }
         return $vista;
     }
-    public function inserSucursal($id, $nitTienda, $name, $municipality, $address, $email, $cellphone, $idBodega)
+    public function inserSucursal($nitTienda, $name, $municipality, $address, $email, $cellphone, $idBodega)
     {
 
         $resultado = null;
@@ -187,14 +187,15 @@ class getUser
 
 
 
-        $sql = "INSERT INTO sucursal (id,name,municipality,address,email,cellphone) VALUES (:id,:name,:municipality,:address,:email,:cellphone )";
+        $sql = "INSERT INTO sucursal (nitTienda,name,municipality,address,email,cellphone,idBodega) VALUES (:id,:name,:municipality,:address,:email,:cellphone,:idBodega )";
         $result = $consulta->prepare($sql);
-        $result->bindParam(':id', $id);
+        $result->bindParam(':id', $nitTienda);
         $result->bindParam(':name', $name);
         $result->bindParam(':municipality', $municipality);
         $result->bindParam(':address', $address);
         $result->bindParam(':email', $email);
         $result->bindParam(':cellphone', $cellphone);
+        $result->bindParam(':idBodega', $idBodega);
         
 
         if (!$result) {

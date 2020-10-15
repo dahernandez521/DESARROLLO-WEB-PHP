@@ -28,34 +28,33 @@ var tienda =$('#rtienda');
 
 		});
 });//cierra funcion enviar 
-var sucursal =$('#rsucursal');
-	$(sucursal).submit(function(e){
+
+var bodega =$('#rbodega');
+	$(bodega).submit(function(e){
 		e.preventDefault();
-		var fromData=$(sucursal).serialize();
+		var fromData=$(bodega).serialize();
 		$.ajax({
 			type: 'POST',
-			url: "../../controller/create/registroSucursal.php",
-			data: fromData
-		})
-		.done(function(response) {
+      url:"../../controller/create/registroBodega.php",
+      data: fromData
+    })
+          .done(function(response) {
 
-            var res = response.split('_')[0];
-            var resp = response.split('_')[1];
-			
-            alert(res);
-            if(resp.length>0){
-                location.href=resp;
-            }
-            
+        var res = response.split('_')[0];
+        var resp = response.split('_')[1];
+  
+        alert(res);
+        if(resp.length>0){
+            location.href=resp;
+        }
+      })
 
-		})
+      .fail(function(data) {
 
-		.fail(function(data) {
+        alert('error al realizar el registro');
 
-			alert('error al realizar el registro');
-
-		});
-	});//cierra funcion e 
+      })
+  });//cierra funcion e 
 
 var registroUser =$('#formUser');
 	$(registroUser).submit(function(enviar){
@@ -65,14 +64,13 @@ var registroUser =$('#formUser');
 		$.ajax({
 			type: 'POST',
 			url: "../controller/create/registroUser.php",
-
 			data: fromData
 		})
 		.done(function(response) {
 
             var res = response.split('_')[0];
             var resp = response.split('_')[1];
-			
+			alert('hello');
             alert(res);
             if(resp.length>0){
                 location.href=resp;
@@ -86,8 +84,9 @@ var registroUser =$('#formUser');
 			alert('error al realizar el registro');
 
 		});
+	});//cierra funtion e 
 
-	})//cierra funtion e 
+
 
 
     $.ajax({

@@ -14,8 +14,8 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
         </script>";
     }
 } //cierera if validador de seción 
-if(isset($_GET["nitEmpresa"])){
-    $_SESSION['nitEmpresa']=$_GET['nitEmpresa'];
+if (isset($_GET["nitEmpresa"])) {
+    $_SESSION['nitEmpresa'] = $_GET['nitEmpresa'];
 }
 ?>
 <!DOCTYPE html>
@@ -55,39 +55,39 @@ if(isset($_GET["nitEmpresa"])){
                 <div class="form-row">
                     <div class="col">
                         <!-- First name -->
-                        
-                            <label for="materialRegisterFormFirstName"> NITEMPRESA
-                                <?php   
-                                echo $_SESSION["nitEmpresa"];
-                                ?>
-                                
-                            </label>
-                            
-                            <br>
 
-                            <label for="materialRegisterFormFirstName">Nombre</label>
-                            <input type="text" id="materialRegisterFormFirstName" name="name" class="form-control" placeholder="Ingrese el nombre de la sucursal">
-                            
-                       
+                        <label for="materialRegisterFormFirstName"> NITEMPRESA
+                            <?php
+                            echo $_SESSION["nitEmpresa"];
+                            ?>
+
+                        </label>
+
+                        <br>
+
+                        <label for="materialRegisterFormFirstName">Nombre</label>
+                        <input type="text" id="materialRegisterFormFirstName" name="name" class="form-control" placeholder="Ingrese el nombre de la sucursal">
+
+
                     </div>
-                  
+
                 </div>
 
                 <!-- E-mail -->
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Departamento</label>
+                    <label for="materialRegisterFormPassword">Departamento</label>
                     <select name="departaments" class="departaments" id="materialRegisterFormEmail" class="form-control">
 
 
                     </select>
                 </div>
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Municipio</label>
+                    <label for="materialRegisterFormPassword">Municipio</label>
                     <select name="municipality" class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
 
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Supervisor</label>
+                    <label for="materialRegisterFormPassword">Supervisor</label>
                     <select name="supervisor" class="supervisor" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
 
@@ -113,27 +113,18 @@ if(isset($_GET["nitEmpresa"])){
                 <label for="materialRegisterFormPassword">ID bodega</label>
                     <select name="idBodega" class="idBodega" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
-
-
+¿
                 <!-- Sign up button -->
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Registrar</button>
                <a href="supervisorGeneral.php" role="button" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Salir</a>
                 <!-- Social register -->
 
 
-            </form>
-            <!-- Form -->
+        </form>
+        <!-- Form -->
 
-        </div>
-        <br>    
-        <div class="form-check">
-            <input type="text" class="form-check-input" name="supervisor" id="materialRegisterFormNewsletter" placeholder="ingrese el nombre del supervisor">
-            <label class="form-check-label" for="materialRegisterFormNewsletter">Supervisor de la tienda</label>
-
-        </div>
-
-
-
+    </div>
+    <br>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -143,8 +134,8 @@ if(isset($_GET["nitEmpresa"])){
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
-        <script type="text/javascript" src="../../js/js.js"></script>
-        <script type="text/javascript" src="../../js/ajaxLugares.js"></script>
+        <!-- <script type="text/javascript" src="../../js/js.js"></script> -->
+        <script type="text/javascript" src="../../js/ajaxSucursal.js"></script>
 </body>
 
 </html>

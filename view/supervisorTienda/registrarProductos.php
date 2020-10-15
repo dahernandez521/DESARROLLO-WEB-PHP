@@ -68,19 +68,19 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
                 <!-- E-mail -->
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Departamento</label>
+                    <label for="materialRegisterFormPassword">Departamento</label>
                     <select name="departaments" class="departaments" id="materialRegisterFormEmail" class="form-control">
 
 
                     </select>
                 </div>
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Municipio</label>
+                    <label for="materialRegisterFormPassword">Municipio</label>
                     <select name="municipality" class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
 
                 <div class="md-form mt-0">
-                <label for="materialRegisterFormPassword">Supervisor</label>
+                    <label for="materialRegisterFormPassword">Supervisor</label>
                     <select name="supervisor" class="supervisor" id="materialRegisterFormEmail" class="form-control"></select>
                 </div>
 
@@ -102,10 +102,16 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <input type="number" class="form-check-input" name="cellphone" id="materialRegisterFormNewsletter" placeholder="Numero de contacto">
                     <label class="form-check-label" for="materialRegisterFormNewsletter">Numero de contacto</label>
                 </div>
+                <br>
+                <div class="form-check">
+                    <input type="text" class="form-check-input" name="supervisor" id="materialRegisterFormNewsletter" placeholder="ingrese el nombre del supervisor">
+                    <label class="form-check-label" for="materialRegisterFormNewsletter">Supervisor de la tienda</label>
+
+                </div>
 
                 <!-- Sign up button -->
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Registrar</button>
-               <a href="supervisorGeneral.php" role="button" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Salir</a>
+                <a href="supervisorTienda.php" role="button" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Salir</a>
                 <!-- Social register -->
 
 
@@ -113,12 +119,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <!-- Form -->
 
         </div>
-        <br>    
-        <div class="form-check">
-            <input type="text" class="form-check-input" name="supervisor" id="materialRegisterFormNewsletter" placeholder="ingrese el nombre del supervisor">
-            <label class="form-check-label" for="materialRegisterFormNewsletter">Supervisor de la tienda</label>
 
-        </div>
 
 
 
@@ -131,7 +132,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
-        
+
         <script type="text/javascript" src="../../js/ajaxLugares.js"></script>
 </body>
 

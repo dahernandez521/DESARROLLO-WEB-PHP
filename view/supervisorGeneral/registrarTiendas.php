@@ -59,6 +59,9 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
                         <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Personas</a>
+                        <a class="dropdown-item" href="registrarTiendas.php">Registrar Tiendas</a>
+                        
+                        <a class="dropdown-item" href="../RegistrarPersonas.php">Registrar Personas </a>
 
 
                     </div>
