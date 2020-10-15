@@ -17,3 +17,4 @@ function getDepartment(){
 }
 
 echo getDepartment();
+?>

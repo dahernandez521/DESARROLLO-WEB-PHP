@@ -32,7 +32,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css">
 
   <link rel="stylesheet" href="../css/estilo.css">
 </head>
@@ -51,13 +51,13 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
           <a class="nav-link" href="supervisorGeneral/SupervisorGeneral.php">Tiendas</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="supervisorGeneral/usuarios.php">Usuario</a>
+          <a class="nav-link" href="supervisorGeneral/usuarios.php">Usuarios</a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro
           </a>
-          
+
           <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
             <a class="dropdown-item" href="supervisorGeneral/registrarTiendas.php">Registrar Tiendas</a>
 
@@ -66,7 +66,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
         </li>
       </ul>
       <ul class="navbar-nav ml-auto nav-flex-icons">
-        
+
         <li class="nav-item avatar dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
@@ -81,7 +81,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
   </nav>
   <!--/.Navbar -->
 
-  <div class="container" class="form-group">
+  <div class="containerPersona" class="form-group" >
 
     <h1>REGISTRAR PERSONA</h1> <br>
 
@@ -89,17 +89,17 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
       <div class="form-group col-md-4" class="form-row">
         <label>Documento</label>
-        <input type="number" required name="document" class="form-control" class="form-row" placeholder="1005698458">
+        <input type="number" required name="document" class="form-control" class="form-row" placeholder="######">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Nombre</label>
-        <input type="text" class="form-control" required name="name" placeholder="Duvan">
+        <label>Nombres</label>
+        <input type="text" class="form-control" required name="name" placeholder="Nombres">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Apellido</label>
-        <input type="text" name="lastname" required  class="form-control" placeholder="Hernandez">
+        <label>Apellidos</label>
+        <input type="text" name="lastname" required class="form-control" placeholder="Apellidos">
       </div>
 
       <div class="form-group col-md-4">
@@ -114,21 +114,21 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
       <div class="form-group col-md-4">
         <label>Correo</label>
-        <input type="email" class="form-control" required  name="email" placeholder="Hernandez@correo.com">
+        <input type="email" class="form-control" required name="email" placeholder="Hernandez@correo.com">
       </div>
 
       <div class="form-group col-md-4">
         <label>Contraseña</label>
-        <input type="password" class="form-control" required  name="password" placeholder="**********">
+        <input type="password" class="form-control" required name="password" placeholder="**********">
       </div>
       <div class="form-group col-md-4">
         <label>Telefono</label>
-        <input type="number" class="form-control" required  name="cellphone" placeholder="#######">
+        <input type="number" class="form-control" required name="cellphone" placeholder="#######">
       </div>
 
       <div class="form-group col-md-4">
         <label>Rol</label>
-        <select name="rol" required >
+        <select name="rol" required>
 
           <option value="">Seleccione</option>
           <option value="1">Supervisor General</option>
@@ -142,26 +142,26 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
       </div>
       <div class="form-group col-md-4">
         <label for="materialRegisterFormPassword">Departamento</label>
-        <select name="departaments" required  class="departaments" id="materialRegisterFormEmail" class="form-control">
+        <select name="departaments" required class="departaments" id="materialRegisterFormEmail" class="form-control">
 
 
         </select>
       </div>
       <div class="form-group col-md-4">
         <label for="materialRegisterFormPassword">Municipio</label>
-        <select name="municipality" required  class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
+        <select name="municipality" required class="municipality" id="materialRegisterFormEmail" class="form-control"></select>
       </div>
 
       <div class="form-group col-md-4">
-        <label>Telefono</label>
-        <input type="text" class="form-control" required  name="address" placeholder="Crr Cll">
+        <label>Dirección</label>
+        <input type="text" class="form-control" required name="address" placeholder="Crr Cll">
       </div>
 
 
       <div class="form-group col-md-4">
 
         <label>Tienda</label>
-        <select name="nitTienda" id="nitTienda" required >
+        <select name="nitTienda" id="nitTienda" required>
 
         </select>
       </div>

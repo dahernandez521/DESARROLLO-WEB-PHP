@@ -35,7 +35,7 @@ function cargarTiendas()
 							';
 			} else {
 				echo '
-							<td><a href="resgistrarSucursal.php">REGISTRAR</a></td>
+							<td><a href="registrarSucursal.php?nitEmpresa='.$f["nit"].'">REGISTRAR</a></td>
 							';
 			}
 
@@ -60,7 +60,7 @@ function cargarTiendas()
             	';
 	}; //end if
 
-} //cierre de funcion cargarTiendas
+}//cierre de funcion cargarTiendas
 
 
 function cargarUser()
@@ -85,7 +85,7 @@ function cargarUser()
                         <td>' . $f["address"] . '</td>
 						
 						<td>' . $f["cellphone"] . '</td>
-						<td>' . $f["rol"] . '</td>
+						<td>'; echo rol($f["rol"] ); echo'</td>
 						<td>' . $f["nitTienda"] . '</td>
 						
 					';
@@ -110,3 +110,27 @@ function cargarUser()
 	}; //end if
 
 }//cierre de funcion cargarTiendas 
+
+
+function rol($rol){
+if($rol==1){
+	$rol="Supervisor General";
+}
+if($rol==2){
+	$rol="Supervisor de Tienda";
+}
+if($rol==3){
+	$rol="Administrador de Sucursal";
+}
+if($rol==4){
+	$rol="Almacenista";
+}
+if($rol==5){
+	$rol="Proveedor";
+}
+if($rol==6){
+	$rol="Vendedor";
+}
+
+return $rol;
+}

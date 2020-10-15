@@ -1,3 +1,4 @@
+
 var tienda =$('#rtienda');
 	$(tienda).submit(function(enviar){
 		enviar.preventDefault();
@@ -27,16 +28,13 @@ var tienda =$('#rtienda');
 
 		});
 });//cierra funcion enviar 
-
-
-var registroUser =$('#formUser');
-	$(registroUser).submit(function(enviar){
-		enviar.preventDefault();
-		var fromData =$(registroUser).serialize();
-
+var sucursal =$('#rsucursal');
+	$(sucursal).submit(function(e){
+		e.preventDefault();
+		var fromData=$(sucursal).serialize();
 		$.ajax({
 			type: 'POST',
-			url: "../controller/create/registroUser.php",
+			url: "../../controller/create/registroSucursal.php",
 			data: fromData
 		})
 		.done(function(response) {
@@ -57,7 +55,39 @@ var registroUser =$('#formUser');
 			alert('error al realizar el registro');
 
 		});
-});//cierra funcion enviar 
+	});//cierra funcion e 
+
+var registroUser =$('#formUser');
+	$(registroUser).submit(function(enviar){
+		enviar.preventDefault();
+		var fromData =$(registroUser).serialize();
+
+		$.ajax({
+			type: 'POST',
+			url: "../controller/create/registroUser.php",
+
+			data: fromData
+		})
+		.done(function(response) {
+
+            var res = response.split('_')[0];
+            var resp = response.split('_')[1];
+			
+            alert(res);
+            if(resp.length>0){
+                location.href=resp;
+            }
+            
+
+		})
+
+		.fail(function(data) {
+
+			alert('error al realizar el registro');
+
+		});
+
+	})//cierra funtion e 
 
 
     $.ajax({
@@ -71,7 +101,7 @@ var registroUser =$('#formUser');
     .fail(function(){
   
       alert('Hubo un errror al cargar los departamentos')
-    })
+    });
   
   
     $('.departaments').on('change', function(){
@@ -101,5 +131,5 @@ var registroUser =$('#formUser');
     .fail(function(){
   
       alert('Hubo un errror al cargar las Tiendas')
-    })
+    });
  

@@ -144,7 +144,7 @@ class getUser
 
 
 
-            $vista = "registro exitoso_../view/RegistrarPersonas.php";
+            $vista = "registro exitoso_../view/supervisorGeneral/usuarios.php";
         }
         return $vista;
     }
@@ -170,27 +170,14 @@ class getUser
 
         if (!$result) {
 
-<<<<<<< HEAD
             $vista = "Fallo al registrar_supervisorGeneral.php";
-=======
-            $vista = "Fallo al registrar";
->>>>>>> 3f8992541f943e252dedd691e8c667b2027fc7bf
         } else {
 
             $result->execute();
-
-
-
-<<<<<<< HEAD
-            $vista = "registro exitoso_supervisorGeneral.php";
-=======
             $vista = "registro exitoso_../../view/supervisorGeneral/supervisorGeneral.php";
->>>>>>> 3f8992541f943e252dedd691e8c667b2027fc7bf
         }
         return $vista;
     }
-
-
     public function inserSucursal($id, $nitTienda, $name, $municipality, $address, $email, $cellphone, $idBodega)
     {
 
@@ -200,7 +187,7 @@ class getUser
 
 
 
-        $sql = "INSERT INTO sucursal (id,name,municipality,address,email,cellphone,idBodega) VALUES (:id,:name,:municipality,:address,:email,:cellphone, :idBodega)";
+        $sql = "INSERT INTO sucursal (id,name,municipality,address,email,cellphone) VALUES (:id,:name,:municipality,:address,:email,:cellphone )";
         $result = $consulta->prepare($sql);
         $result->bindParam(':id', $id);
         $result->bindParam(':name', $name);
@@ -208,7 +195,7 @@ class getUser
         $result->bindParam(':address', $address);
         $result->bindParam(':email', $email);
         $result->bindParam(':cellphone', $cellphone);
-        $result->bindParam(':idBodega', $idBodega);
+        
 
         if (!$result) {
 
@@ -222,5 +209,35 @@ class getUser
             $vista = "registro exitoso_../../view/supervisorGeneral/supervisorGeneral.php";
         }
         return $vista;
+    }
+    public function inserBodega($nombre, $municipio, $dirrecion, $email,$cellphone)
+    {
+        $resultado = null;
+        $model = new conexion();
+        $consulta = $model->get_conexion();
+        
+        $sql = "INSERT INTO bodega(name, municipality, address, email, cellphone) VALUES(:nombre,:municipio,:dirrecion,:email,:cellphone)";
+        $result = $consulta->prepare($sql);
+        $result->bindParam(':nombre', $nombre);
+        $result->bindParam(':municipio', $municipio);
+        $result->bindParam(':dirrecion', $dirrecion);
+        $result->bindParam(':email', $email);
+        $result->bindParam(':cellphone', $cellphone);
+        
+
+        if (!$result) {
+
+            $vista = "Fallo al registrar";
+        } else {
+
+            $result->execute();
+
+
+
+            $vista = "registro exitoso_../../view/almacenista/almacenista.php";
+        }
+        return $vista;
+
+    
     }
 }

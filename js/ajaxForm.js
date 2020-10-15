@@ -30,7 +30,7 @@ var form = $('#miform');
 			alert('error al ingresar');
 
 		});
-	});
+				});
 //resgitro de tiendas 
 
 	

@@ -44,7 +44,7 @@ if (strlen($user) > 0 && strlen($pass) > 0) {
                 $vista = "Bienvenido_view/supervisorSucursal.php";
             }
             if ($rol == 4) {
-                $vista = "Bienvenido_view/almacenista.php";
+                $vista = "Bienvenido_view/almacenista/almacenista.php";
             }
             if ($rol == 5) {
                 $vista = "Bienvenido_view/vendedor.php";

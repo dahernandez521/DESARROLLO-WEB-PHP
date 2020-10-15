@@ -51,7 +51,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                     <a class="nav-link" href="#">Tiendas</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="usuarios.php">Usuario</a>
+                    <a class="nav-link" href="usuarios.php">Usuarios</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -65,11 +65,6 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light">1
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </li>
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width: 50%;">
@@ -78,31 +73,29 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
                         <a class="dropdown-item" href="#">Cerrar Sesion</a>
                     </div>
+                </li>
+            </ul>
         </div>
 
-
-
-
-        </div>
     </nav>
     <!--/.Navbar -->
 
     <!-- Material form register -->
 
-    <div class="containerPersona" class="form-group">
+    <div class="containerTienda" class="form-group" style= "opacity: 0.9;">
 
         <h1> <strong>REGISTRAR TIENDA</strong></h1> <br>
 
-        <form action="" method="post" id="form" class="form-row">
+        <form action="" method="post" id="form" class="rtienda form-row" >
 
             <div class="form-group col-md-4" class="form-row">
                 <label><strong>Nit</strong></label>
-                <input type="text" name="nit" class="form-control" class="form-row" placeholder="7895481">
+                <input type="text" name="nit" class="form-control" class="form-row" placeholder="7895481" required>
             </div>
 
             <div class="form-group col-md-4">
                 <label><strong>Nombre</strong></label>
-                <input type="text" class="form-control" name="name" placeholder="EJEMPLO S.A">
+                <input type="text" class="form-control" name="name" placeholder="EJEMPLO S.A" required> 
             </div>
 
             <br>
@@ -110,7 +103,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <div class="form-group col-md-4">
                 <label><strong>Departamento</strong></label>
                 <br>
-                <select class="form-control departaments" name="departaments"></select>
+                <select class="form-control departaments" name="departaments"  required></select>
             </div>
 
             <br>
@@ -118,7 +111,7 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             <div class="form-group col-md-4">
                 <label><strong>Municipio</strong></label>
                 <br>
-                <select name="municipality" class="form-control municipality"></select>
+                <select name="municipality" class="form-control municipality"  required></select>
             </div>
 
             <br>
@@ -126,17 +119,23 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
 
             <div class="form-group col-md-4">
                 <label><strong>Supervisor</strong></label>
-                <select name="supervisor" class=" form-control supervisor"></select>
+                <br>
+                <select name="supervisor" class= "form-control supervisor"  required></select>
             </div>
 
             <div class="form-group col-md-4">
                 <label><strong>Dirrección</strong></label>
-                <input type="text" name="address" class="form-control" placeholder="carrera 5 #4-98">
+                <input type="text" name="address" class="form-control" placeholder="carrera 5 #4-98"  required>
             </div>
 
             <div class="form-group col-md-4">
                 <label><strong>Correo electronico</strong></label>
-                <input type="email" class="form-control" name="email" placeholder="empresavilleta@tucorreo.com">
+                <input type="email" class="form-control" name="email" placeholder="empresavilleta@tucorreo.com"  required>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label><strong>Telefono</strong></label>
+                <input type="number" class="form-control" name="cellphone" placeholder="#######">
             </div>
             <br>
             <br>

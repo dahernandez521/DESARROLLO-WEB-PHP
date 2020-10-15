@@ -8,15 +8,12 @@ if (!isset($_SESSION['login'])) { // verifica que existe la session activa
             location.href='../index.php';
         </script>";
 } else {
-    if ($_SESSION['rol'] != 1) {
+    if ($_SESSION['rol'] != 2) {
         echo "<script>
             location.href='../index.php';
         </script>";
     }
 } //cierera if validador de seción 
-if(isset($_GET["nitEmpresa"])){
-    $_SESSION['nitEmpresa']=$_GET['nitEmpresa'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,34 +40,30 @@ if(isset($_GET["nitEmpresa"])){
     <div class="card">
 
         <h5 class="card-header info-color white-text text-center py-4">
-            <strong>Registra tu sucursal</strong>
+            <strong>Registra tu Producto</strong>
         </h5>
 
         <!--Card content-->
         <div class="card-body px-lg-5 pt-0">
 
             <!-- Form -->
-            <form class="text-center" id="rsucursal" style="color: #757575;">
+            <form class="text-center" id="rproducto" style="color: #757575;">
 
                 <div class="form-row">
                     <div class="col">
                         <!-- First name -->
-                        
-                            <label for="materialRegisterFormFirstName"> NITEMPRESA
-                                <?php   
-                                echo $_SESSION["nitEmpresa"];
-                                ?>
-                                
-                            </label>
-                            
-                            <br>
-
-                            <label for="materialRegisterFormFirstName">Nombre</label>
-                            <input type="text" id="materialRegisterFormFirstName" name="name" class="form-control" placeholder="Ingrese el nombre de la sucursal">
-                            
-                       
+                        <div class="md-form">
+                            <input type="text" id="materialRegisterFormFirstName" name="nit" class="form-control" placeholder="Ingrese le Nit de la empresa">
+                            <label for="materialRegisterFormFirstName">NIT</label>
+                        </div>
                     </div>
-                  
+                    <div class="col">
+                        <!-- Last name -->
+                        <div class="md-form">
+                            <input type="text" id="materialRegisterFormLastName" name="name" class="form-control" placeholder="Ingrese el nombre de la empresa">
+                            <label for="materialRegisterFormLastName">Nombre </label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- E-mail -->
@@ -109,11 +102,6 @@ if(isset($_GET["nitEmpresa"])){
                     <input type="number" class="form-check-input" name="cellphone" id="materialRegisterFormNewsletter" placeholder="Numero de contacto">
                     <label class="form-check-label" for="materialRegisterFormNewsletter">Numero de contacto</label>
                 </div>
-                <br>
-                <label for="materialRegisterFormPassword">ID bodega</label>
-                    <select name="idBodega" class="idBodega" id="materialRegisterFormEmail" class="form-control"></select>
-                </div>
-
 
                 <!-- Sign up button -->
                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Registrar</button>

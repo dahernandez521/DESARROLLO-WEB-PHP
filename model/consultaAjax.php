@@ -1,8 +1,5 @@
 <?php
 
-/**
- * 
- */
 class queryAjax
 {
 	public function getDepartmentAjax()
@@ -39,16 +36,17 @@ class queryAjax
 	}
 
 	
-	public function getSupervisorAjax($id)
+	public function getSupervisorAjax($id,$ida)
 	{
 		$resultado=null;
 
 		$modelo= new conexion();
   		$conexion = $modelo->get_conexion();
 
-  		$sql = "SELECT * FROM user WHERE rol = :id";
+  		$sql = "SELECT * FROM user WHERE rol = :id or rol = :ida";
   		$result=$conexion->prepare($sql);
-  		$result->bindParam(":id",$id);
+		  $result->bindParam(":id",$id);
+		  $result->bindParam(":ida",$ida);
   		$result->execute();
 
   		while ($f=$result->fetch()) {
@@ -57,6 +55,23 @@ class queryAjax
 		return $resultado;
 	}
 
+	public function getBodegaAjax(){
+		$resultado=null;
+
+		$modelo = new conexion();
+
+		$conexion = $modelo->get_conexion();
+
+		$sql= "SELECT * FROM bodega ";
+		$result=$conexion->prepare($sql);
+			
+		$result->execute();
+
+		while($f=$result->fetch()){
+			$resultado[]=$f;
+		}
+		return $resultado; 
+	}
 	public function getTiendaAjax()
 	{
 		$resultado=null;
